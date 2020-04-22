@@ -838,12 +838,12 @@ namespace FluentAssertions.Primitives
             return new AndConstraint<TAssertions>((TAssertions)this);
         }
 
-        // ---
+        // TODO:
         /// <summary>
         /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="invalidValues"/>.
         /// </summary>
         /// <param name="invalidValues">
-        /// The values that are valid.
+        /// The values that are invalid.
         /// </param>
         public AndConstraint<TAssertions> NotBeOneOf(params DateTime?[] invalidValues)
         {
@@ -851,21 +851,21 @@ namespace FluentAssertions.Primitives
         }
 
         /// <summary>
-        /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="validValues"/>.
+        /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="invalidValues"/>.
         /// </summary>
-        /// <param name="validValues">
-        /// The values that are valid.
+        /// <param name="invalidValues">
+        /// The values that are invalid.
         /// </param>
-        public AndConstraint<TAssertions> NotBeOneOf(params DateTime[] validValues)
+        public AndConstraint<TAssertions> NotBeOneOf(params DateTime[] invalidValues)
         {
-            return NotBeOneOf(validValues.Cast<DateTime?>());
+            return NotBeOneOf(invalidValues.Cast<DateTime?>());
         }
 
         /// <summary>
-        /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="validValues"/>.
+        /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="invalidValues"/>.
         /// </summary>
-        /// <param name="validValues">
-        /// The values that are valid.
+        /// <param name="invalidValues">
+        /// The values that are invalid.
         /// </param>
         /// <param name="because">
         /// A formatted phrase as is supported by <see cref="string.Format(string,object[])" /> explaining why the assertion
@@ -874,16 +874,16 @@ namespace FluentAssertions.Primitives
         /// <param name="becauseArgs">
         /// Zero or more objects to format using the placeholders in <paramref name="because" />.
         /// </param>
-        public AndConstraint<TAssertions> NotBeOneOf(IEnumerable<DateTime> validValues, string because = "", params object[] becauseArgs)
+        public AndConstraint<TAssertions> NotBeOneOf(IEnumerable<DateTime> invalidValues, string because = "", params object[] becauseArgs)
         {
-            return NotBeOneOf(validValues.Cast<DateTime?>(), because, becauseArgs);
+            return NotBeOneOf(invalidValues.Cast<DateTime?>(), because, becauseArgs);
         }
 
         /// <summary>
-        /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="validValues"/>.
+        /// Asserts that the <see cref="DateTime"/> is not one of the specified <paramref name="invalidValues"/>.
         /// </summary>
-        /// <param name="validValues">
-        /// The values that are valid.
+        /// <param name="invalidValues">
+        /// The values that are invalid.
         /// </param>
         /// <param name="because">
         /// A formatted phrase as is supported by <see cref="string.Format(string,object[])" /> explaining why the assertion
@@ -892,17 +892,17 @@ namespace FluentAssertions.Primitives
         /// <param name="becauseArgs">
         /// Zero or more objects to format using the placeholders in <paramref name="because" />.
         /// </param>
-        public AndConstraint<TAssertions> NotBeOneOf(IEnumerable<DateTime?> validValues, string because = "", params object[] becauseArgs)
+        public AndConstraint<TAssertions> NotBeOneOf(IEnumerable<DateTime?> invalidValues, string because = "", params object[] becauseArgs)
         {
             Execute.Assertion
-                .ForCondition(validValues.Contains(Subject) is false)
+                .ForCondition(invalidValues.Contains(Subject) is false)
                 .BecauseOf(because, becauseArgs)
-                .FailWith("Expected {context:date and time} to be one of {0}{reason}, but found {1}.", validValues, Subject);
+                .FailWith("Expected {context:date and time} not to be one of {0}{reason}, but it is {1}.", invalidValues, Subject);
 
             return new AndConstraint<TAssertions>((TAssertions)this);
         }
 
-        // ---
+        // TODO: END
 
         /// <summary>
         /// Asserts that the <see cref="DateTime"/> represents a value in the <paramref name="expectedKind"/>.
