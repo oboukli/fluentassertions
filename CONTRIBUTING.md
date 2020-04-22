@@ -1,6 +1,6 @@
 # Contributing to Fluent Assertions
 
-No open-source project is going to be successful without contributions. After we decided to move to Github, the involvement of the .NET community has increased significantly. However, contributing to this project involves a few steps that will seriously increase the chance we will accept it.
+No open-source project is going to be successful without contributions. After we decided to move to GitHub, the involvement of the .NET community has increased significantly. However, contributing to this project involves a few steps that will seriously increase the chance we will accept it.
 
 * The [Pull Request](https://help.github.com/articles/using-pull-requests) is targeted at the `develop` branch.
 * The code complies with the [Coding Guidelines for C# 3.0, 4.0 and 5.0](https://csharpcodingguidelines.com/)/.
